@@ -243,27 +243,130 @@
 
 // Managing state
 
-import {useState } from "react";
+// import {useState } from "react";
 
 
 
-function ListGroup() {
-    let items = [ //rendering list of items dynamically.
-        'New York',
-        'San Francisco',
-        'Tokyo',
-        'London',
-        'Paris'
-    ];
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
 
 
 
     
-    //Hook
-    // const arr = useState={(-1);
-    // arr[0] // variable (selectedIndex )
-    // arr[1] // updater function
-    // }
+//     //Hook
+//     // const arr = useState={(-1);
+//     // arr[0] // variable (selectedIndex )
+//     // arr[1] // updater function
+//     // }
+
+//     const [selectedIndex, setSelectedIndex] = useState(-1);
+
+//     //selectedIndex holds the currently slected item.Initially -1 indicates no item is selected.
+//     //-1 means no items selected and setSelectedIndex is a function to update the value of slectedIndex.
+   
+
+
+
+//     // const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
+
+
+//     return (
+//     <>
+//         <h1>List</h1>
+//         {items.length === 0 ? <p>No item found</p> : null} 
+//       <ul className="list-group">
+//         {items.map((item,index) => (
+//             <li className = { selectedIndex === index ? 'list-group-item active' :'list-group-item'} 
+//             key={item}
+//             onClick={() => {setSelectedIndex(index);}} // event objects
+//             >
+//             {item} 
+//             </li> 
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+//props
+
+
+
+// import {useState } from "react";
+
+
+
+// // {items: [],heading:string }
+// interface Props {
+//     items: string[];
+//     heading: string;
+// }
+
+// function ListGroup({items,heading}: Props) {
+
+
+//     const [selectedIndex, setSelectedIndex] = useState(-1);
+
+//     //selectedIndex holds the currently slected item.Initially -1 indicates no item is selected.
+//     //-1 means no items selected and setSelectedIndex is a function to update the value of slectedIndex.
+   
+
+
+
+//     // const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
+
+
+//     return (
+//     <>
+//         <h1>{heading}</h1>
+//         {items.length === 0 ? <p>No item found</p> : null} 
+//       <ul className="list-group">
+//         {items.map((item,index) => (
+//             <li className = { selectedIndex === index ? 'list-group-item active' :'list-group-item'} 
+//             key={item}
+//             onClick={() => {setSelectedIndex(index);}} // event objects
+//             >
+//             {item} 
+//             </li> 
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+
+
+//passing functions through prop
+
+
+
+import {useState } from "react";
+
+
+
+// {items: [],heading:string }
+interface Props {
+    items: string[];
+    heading: string;
+    onSelectItem: (item: string) => void;   //onclick property
+}
+
+function ListGroup({items,heading,onSelectItem}: Props) {
+
 
     const [selectedIndex, setSelectedIndex] = useState(-1);
 
@@ -278,13 +381,15 @@ function ListGroup() {
 
     return (
     <>
-        <h1>List</h1>
+        <h1>{heading}</h1>
         {items.length === 0 ? <p>No item found</p> : null} 
       <ul className="list-group">
-        {items.map((item,index) => (
+        {items.map((item,index) => (//here the map method iterate over the items.
             <li className = { selectedIndex === index ? 'list-group-item active' :'list-group-item'} 
             key={item}
-            onClick={() => {setSelectedIndex(index);}} // event objects
+            onClick={() => {setSelectedIndex(index);
+                onSelectItem(item);
+            }} // event objects
             >
             {item} 
             </li> 
