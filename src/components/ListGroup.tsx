@@ -202,7 +202,50 @@
 //Handling Events
 
 
-import { MouseEvent } from "react";
+// import { MouseEvent } from "react";
+
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
+
+//     //Event handler
+
+//     const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
+
+
+//     return (
+//     <>
+//         <h1>List</h1>
+//         {items.length === 0 ? <p>No item found</p> : null} 
+//       <ul className="list-group">
+//         {items.map((item,index) => (
+//             <li className="list-group-item" key={item}
+//             onClick={handleClick} // event objects
+//             >
+//             {item} 
+//             </li> 
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+
+
+// Managing state
+
+import {useState } from "react";
+
+
 
 function ListGroup() {
     let items = [ //rendering list of items dynamically.
@@ -213,9 +256,24 @@ function ListGroup() {
         'Paris'
     ];
 
-    //Event handler
 
-    const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
+
+    
+    //Hook
+    // const arr = useState={(-1);
+    // arr[0] // variable (selectedIndex )
+    // arr[1] // updater function
+    // }
+
+    const [selectedIndex, setSelectedIndex] = useState(-1);
+
+    //selectedIndex holds the currently slected item.Initially -1 indicates no item is selected.
+    //-1 means no items selected and setSelectedIndex is a function to update the value of slectedIndex.
+   
+
+
+
+    // const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
 
 
     return (
@@ -224,8 +282,9 @@ function ListGroup() {
         {items.length === 0 ? <p>No item found</p> : null} 
       <ul className="list-group">
         {items.map((item,index) => (
-            <li className="list-group-item" key={item}
-            onClick={handleClick} // event objects
+            <li className = { selectedIndex === index ? 'list-group-item active' :'list-group-item'} 
+            key={item}
+            onClick={() => {setSelectedIndex(index);}} // event objects
             >
             {item} 
             </li> 
