@@ -23,18 +23,40 @@
 // export default App;
 
 
-import Alert from "./components/alert";
+// import Alert from "./components/alert";
 
 
 
-function App() {
+// function App() {
 
 
-  return <div><Alert>
-    Hi <span>AI Engineer</span>
-    </Alert></div> ;
+//   return <div><Alert>
+//     Hi <span>AI Engineer</span>
+//     </Alert></div> ;
  
   
+// }
+
+// export default App;
+
+
+//Button component
+
+import { useState } from "react";
+import Alert from "./components/alert";
+import Button from "./components/button";
+
+
+function App(){
+
+  const [alertVisible,setAlertVisibility] = useState(false);
+
+  return (
+    <div>
+      {alertVisible &&<Alert>My alert</Alert>}
+      <Button color = "primary" onClick={() => setAlertVisibility(true)}>My Button</Button>
+    </div>
+  )
 }
 
-export default App;
+export default App; 
