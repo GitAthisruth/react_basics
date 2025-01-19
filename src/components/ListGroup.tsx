@@ -27,8 +27,11 @@ function ListGroup() {
     items = [];
 
     if (items.length === 0)
-        return <p>No item found</p>;
-
+        return <>
+        <h1>List</h1>
+        <p>No item found</p>;
+</> 
+        
     return (
     <>
       <h1>List</h1>
@@ -43,3 +46,37 @@ function ListGroup() {
 }
 
 export default ListGroup;
+
+
+
+
+//conditional rendering 
+
+// conditional rendering using curly braces. 
+
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
+
+//     items = [];
+
+//     return (
+//     <>
+//       <h1>List</h1>
+//     { items.length === 0 ? <p>No item found</p> : null} 
+//       <ul className="list-group">
+//         {items.map((item) => (
+//             <li key={item}>{item}</li>
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
