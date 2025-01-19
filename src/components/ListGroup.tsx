@@ -15,44 +15,44 @@
 // export default ListGroup;
 
 
-function ListGroup() {
-    let items = [ //rendering list of items dynamically.
-        'New York',
-        'San Francisco',
-        'Tokyo',
-        'London',
-        'Paris'
-    ];
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
 
-    items = [];
+//     items = [];
 
-    if (items.length === 0)
-        return <>
-        <h1>List</h1>
-        <p>No item found</p>;
-</> 
+//     if (items.length === 0)
+//         return <>
+//         <h1>List</h1>
+//         <p>No item found</p>;
+// </> 
         
-    return (
-    <>
-      <h1>List</h1>
-      <ul className="list-group">
-        {items.map((item) => (
-            <li key={item}>{item}</li>
-            ))}
-      </ul>
-    </>
-    );
+//     return (
+//     <>
+//       <h1>List</h1>
+//       <ul className="list-group">
+//         {items.map((item) => (
+//             <li key={item}>{item}</li>
+//             ))}
+//       </ul>
+//     </>
+//     );
   
-}
+// }
 
-export default ListGroup;
-
-
+// export default ListGroup;
 
 
-//conditional rendering 
+//OR
 
-// conditional rendering using curly braces. 
+// //conditional rendering 
+
+// // conditional rendering using curly braces. 
 
 // function ListGroup() {
 //     let items = [ //rendering list of items dynamically.
@@ -68,7 +68,7 @@ export default ListGroup;
 //     return (
 //     <>
 //       <h1>List</h1>
-//     { items.length === 0 ? <p>No item found</p> : null} 
+//     { items.length === 0 ? <p>No item found</p> : null} // // condtional render
 //       <ul className="list-group">
 //         {items.map((item) => (
 //             <li key={item}>{item}</li>
@@ -80,3 +80,122 @@ export default ListGroup;
 // }
 
 // export default ListGroup;
+
+
+
+
+// // OR
+
+
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
+
+//     items = [];
+
+//     // const message = items.length === 0 ? <p>No item found</p> : null
+
+//     const getMessage = () => { //declare a function
+
+//         return items.length === 0 ? <p>No item found</p> : null
+//     }
+
+//     return (
+//     <>
+//         <h1>List</h1>
+//         {getMessage()} 
+//       <ul className="list-group">
+//         {items.map((item) => (
+//             <li key={item}>{item}</li> //key used to find elements
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+
+//OR
+
+
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
+
+//     items = []; //here we reassign item list as empty.
+
+//     // const message = items.length === 0 ? <p>No item found</p> : null
+
+//     const getMessage = () => { //declare a function
+
+//         return items.length === 0 ? <p>No item found</p> : null
+//     }
+
+//     return (
+//     <>
+//         <h1>List</h1>
+//         {items.length === 0 ? <p>No item found</p> : null} 
+//         {items.length === 0 && <p>No item found</p>} // // && true or false true then <p> item print.
+//       <ul className="list-group">
+//         {items.map((item) => (
+//             <li key={item}>{item}</li> //key used to find elements
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+
+//Handling Items
+
+
+function ListGroup() {
+    let items = [ //rendering list of items dynamically.
+        'New York',
+        'San Francisco',
+        'Tokyo',
+        'London',
+        'Paris'
+    ];
+
+    items = []; //here we reassign item list as empty.
+
+    // const message = items.length === 0 ? <p>No item found</p> : null
+
+    const getMessage = () => { //declare a function
+
+        return items.length === 0 ? <p>No item found</p> : null
+    }
+
+    return (
+    <>
+        <h1>List</h1>
+        {items.length === 0 ? <p>No item found</p> : null} 
+      <ul className="list-group">
+        {items.map((item) => (
+            <li key={item}>{item}</li> //key used to find elements
+            ))}
+      </ul>
+    </>
+    );
+  
+}
+
+export default ListGroup;
