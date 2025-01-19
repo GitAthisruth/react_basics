@@ -166,6 +166,44 @@
 //Handling Items
 
 
+// function ListGroup() {
+//     let items = [ //rendering list of items dynamically.
+//         'New York',
+//         'San Francisco',
+//         'Tokyo',
+//         'London',
+//         'Paris'
+//     ];
+
+    
+
+
+//     return (
+//     <>
+//         <h1>List</h1>
+//         {items.length === 0 ? <p>No item found</p> : null} 
+//       <ul className="list-group">
+//         {items.map((item,index) => (
+//             <li className="list-group-item" key={item} onClick={(event) => console.log(event)} // event objects
+//             >
+//             {item} 
+//             </li> 
+//             ))}
+//       </ul>
+//     </>
+//     );
+  
+// }
+
+// export default ListGroup;
+
+
+
+//Handling Events
+
+
+import { MouseEvent } from "react";
+
 function ListGroup() {
     let items = [ //rendering list of items dynamically.
         'New York',
@@ -175,14 +213,19 @@ function ListGroup() {
         'Paris'
     ];
 
+    //Event handler
+
+    const handleClick = (event:MouseEvent) => console.log(event) // mention the type of the parameter
+
 
     return (
     <>
         <h1>List</h1>
         {items.length === 0 ? <p>No item found</p> : null} 
       <ul className="list-group">
-        {items.map((item) => (
-            <li className="list-group-item" key={item} onClick={() => console.log('Clicked')}
+        {items.map((item,index) => (
+            <li className="list-group-item" key={item}
+            onClick={handleClick} // event objects
             >
             {item} 
             </li> 
