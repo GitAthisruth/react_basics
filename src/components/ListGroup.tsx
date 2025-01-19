@@ -175,14 +175,6 @@ function ListGroup() {
         'Paris'
     ];
 
-    items = []; //here we reassign item list as empty.
-
-    // const message = items.length === 0 ? <p>No item found</p> : null
-
-    const getMessage = () => { //declare a function
-
-        return items.length === 0 ? <p>No item found</p> : null
-    }
 
     return (
     <>
@@ -190,7 +182,10 @@ function ListGroup() {
         {items.length === 0 ? <p>No item found</p> : null} 
       <ul className="list-group">
         {items.map((item) => (
-            <li key={item}>{item}</li> //key used to find elements
+            <li className="list-group-item" key={item} onClick={() => console.log('Clicked')}
+            >
+            {item} 
+            </li> 
             ))}
       </ul>
     </>
